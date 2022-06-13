@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import psycopg2
 conn=psycopg2.connect(dbname='Project',user='postgres',password='868696',host='127.0.0.1',port='5432')
+
 cur=conn.cursor()
 curs = conn.cursor()
 curs.execute("ROLLBACK")
@@ -43,7 +44,7 @@ data = df1.drop_duplicates()
 
 st.title('Price Optimization')
 
-Unique_Products =pickle.load(open('Unique_Products.pkl','rb'))
+Unique_Products = pickle.load(open('Unique_Products.pkl','rb'))
 Zone = pickle.load(open('Zone.pkl','rb'))
 model = pickle.load(open('model.pkl','rb'))
 
@@ -110,4 +111,11 @@ def find_optimal_price(data_new):
 if st.button('Predict Optimized Price'):
     values_at_max_profit = find_optimal_price(data_new)
     st.write('Optimized Price for',Selected_Product_Name, values_at_max_profit )
+
+from PIL import Image
+image = Image.open('Retail_price_shutterstock_VectorMine-scaled.jpg')
+
+st.image(image, caption='Retail-Price-Optimization')
+
+
 
