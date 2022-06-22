@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 import numpy as np
 import psycopg2
-conn=psycopg2.connect(dbname='Project',user='postgres',password='868696',host='127.0.0.1',port='5432')
+conn=psycopg2.connect(dbname='Project',user='postgres',password='*****',host='127.0.0.1',port='5432')
 
 cur=conn.cursor()
 curs = conn.cursor()
